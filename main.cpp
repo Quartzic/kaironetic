@@ -58,13 +58,16 @@ int main(int argc, char **argv) {
    Kuka::Group myProgram;
 
    myProgram.commands.emplace_back(new Kuka::STARTWRAPPER());
+
+   // initialize pen
    myProgram.commands.emplace_back(new Kuka::PTP(Kuka::Frame(350, -250, 425, 128, 31, 178)));
 
-  for (int i = 1; i < 10; i++) {
-    myProgram.commands.emplace_back(new Kuka::Draw2DSquare(300-(5*i), -250+(5*i), (i*10), (i*10)));
-  }
+  for(int i = 1; i < 15; i++)
+  {
+    myProgram.commands.emplace_back(new Kuka::Draw2DSquare(300 - (2.5*i),-250 + (2.5*i),i*5,i*5));
+  };
 
-   myProgram.commands.emplace_back(new Kuka::ENDWRAPPER());
+  myProgram.commands.emplace_back(new Kuka::ENDWRAPPER());
    outputFile.open(outputFileName, std::fstream::out);
    outputFile << myProgram.compileKRL();
    outputFile.close();
