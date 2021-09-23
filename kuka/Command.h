@@ -18,22 +18,27 @@ class Command {
   virtual const std::string compileKRL() = 0;
 };
 
+class Comment : public Command{
+ public:
+  const std::string compileKRL() override;
+  Comment(std::string comment);
+  std::string comment;
+};
 class STARTWRAPPER : public Command {
  public:
   const std::string compileKRL() override;
 };
-
 class ENDWRAPPER : public Command {
  public:
   const std::string compileKRL() override;
 };
+
 class LIN : public Command {
  public:
   const std::string compileKRL() override;
   Frame frame;
   LIN(Frame);
 };
-
 class PTP : public Command {
  public:
   const std::string compileKRL() override;

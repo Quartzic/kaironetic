@@ -79,3 +79,5 @@ const std::string Kuka::ENDWRAPPER::compileKRL() { return ";FOLD SPTP HOME Vel=1
                                                    ";ENDFOLD\n"
                                                    "\n"
                                                    "END"; }
+Kuka::Comment::Comment(const std::string comment) : comment(comment) {}
+const std::string Kuka::Comment::compileKRL() { return std::string("; " + comment); }
