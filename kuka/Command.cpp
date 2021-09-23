@@ -17,11 +17,11 @@ const std::string Kuka::PTP::compileKRL() {
 Kuka::PTP::PTP(Frame frame) : frame(frame) {}
 
 Kuka::Draw2DPenUp::Draw2DPenUp() {}
-const std::string Kuka::Draw2DPenUp::compileKRL() { return Kuka::PTP(Kuka::Frame(std::nullopt, std::nullopt, 425, std::nullopt, std::nullopt, std::nullopt)).compileKRL(); }
+const std::string Kuka::Draw2DPenUp::compileKRL() { return Kuka::LIN(Kuka::Frame(std::nullopt, std::nullopt, 425, std::nullopt, std::nullopt, std::nullopt)).compileKRL(); }
 
 
 Kuka::Draw2DPenDown::Draw2DPenDown() {}
-const std::string Kuka::Draw2DPenDown::compileKRL() { return Kuka::PTP(Kuka::Frame(std::nullopt, std::nullopt, 405, std::nullopt, std::nullopt, std::nullopt)).compileKRL(); }
+const std::string Kuka::Draw2DPenDown::compileKRL() { return Kuka::LIN(Kuka::Frame(std::nullopt, std::nullopt, 405, std::nullopt, std::nullopt, std::nullopt)).compileKRL(); }
 
 Kuka::Draw2DLine::Draw2DLine(float x1, float y1, float x2, float y2)
     : x1(x1), y1(y1), x2(x2), y2(y2) {}
