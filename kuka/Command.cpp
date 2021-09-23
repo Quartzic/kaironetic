@@ -38,9 +38,11 @@ const std::string Kuka::Draw2DLine::compileKRL() {
 const std::string Kuka::Draw2DSquare::compileKRL(){
   Kuka::Group square;
   square.commands.emplace_back(new Kuka::Draw2DLine(x, y, (x + length), y));
-  square.commands.emplace_back(new Kuka::Draw2DLine((x + length), y, (x + length), (y + width)));
-  square.commands.emplace_back(new Kuka::Draw2DLine((x + length), (y + width), x, (y + width)));
-  square.commands.emplace_back(new Kuka::Draw2DLine(x, (y + width), x, y));
+  square.commands.emplace_back(new Kuka::Draw2DLine((x + length), y, (x + length), (y - width)));
+  square.commands.emplace_back(new Kuka::Draw2DLine((x + length), (y - width), x, (y - width)));
+  square.commands.emplace_back(new Kuka::Draw2DLine(x, (y - width), x, y));
+
+  std::cout << x << ", " << y << ", " << length << ", " << width << std::endl;
   return square.compileKRL();
 }
 
