@@ -35,6 +35,18 @@ const std::string Kuka::Draw2DLine::compileKRL() {
   return line.compileKRL();
 }
 
+const std::string Kuka::Draw2DSquare::compileKRL(){
+  Kuka::Group square;
+  square.commands.emplace_back(new Kuka::Draw2DLine(x, y, (x + length), y));
+  square.commands.emplace_back(new Kuka::Draw2DLine((x + length), y, (x + length), (y + width)));
+  square.commands.emplace_back(new Kuka::Draw2DLine((x + length), (y + width), x, (y + width)));
+  square.commands.emplace_back(new Kuka::Draw2DLine(x, (y + width), x, y));
+  return square.compileKRL();
+}
+
+Kuka::Draw2DSquare::Draw2DSquare(float x, float y, float length, float width)
+    : x(x), y(y), length(length), width(width) {}
+
 const std::string Kuka::STARTWRAPPER::compileKRL() { return  "&ACCESS RVP\n"
                                                              "&REL 17\n"
                                                              "&PARAM EDITMASK = *\n"

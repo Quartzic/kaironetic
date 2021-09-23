@@ -68,6 +68,9 @@ int main(int argc, char **argv) {
   myProgram.commands.emplace_back(new Kuka::Draw2DLine(325,-250,325,-300));
   myProgram.commands.emplace_back(new Kuka::Draw2DLine(300,-250,300,-300));
 
+  myProgram.commands.emplace_back(new Kuka::Draw2DSquare(300, -250, 20, 20));
+  myProgram.commands.emplace_back(new Kuka::Draw2DSquare(310, -260, 10, 10));
+
    myProgram.commands.emplace_back(new Kuka::ENDWRAPPER());
    outputFile.open(outputFileName, std::fstream::out);
    outputFile << myProgram.compileKRL();

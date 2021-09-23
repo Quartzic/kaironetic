@@ -60,5 +60,14 @@ class Draw2DLine : public Command {
   Draw2DLine(float x1, float y1, float x2, float y2);
   const std::string compileKRL() override;
 };
+class Draw2DSquare : public Command {
+ public:
+  float x;
+  float y;
+  float length;
+  float width;
+  Draw2DSquare(float x, float y, float length, float width);
+  const std::string compileKRL() override;
+};
 }
 #endif  // SYNTH_COMMAND_H
