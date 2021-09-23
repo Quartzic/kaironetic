@@ -83,3 +83,17 @@ const std::string Kuka::ENDWRAPPER::compileKRL() { return ";FOLD SPTP HOME Vel=1
                                                    "END"; }
 Kuka::Comment::Comment(const std::string comment) : comment(comment) {}
 const std::string Kuka::Comment::compileKRL() { return std::string("; " + comment); }
+const std::string Kuka::Draw2DPath::compileKRL() {
+  Kuka::Group output;
+  output.commands.emplace_back( new Kuka::LIN(Kuka::Frame(points[0].x, points[0].y, std::nullopt, std::nullopt, std::nullopt, std::nullopt) ));
+  output.commands.emplace_back(new Kuka::Draw2DPenDown);
+  for(int i = 1; i < points.size(); i++)
+  {
+    output.commands.emplace_back( new Kuka::LIN(Kuka::Frame(points[i].x, points[i].y, std::nullopt, std::nullopt, std::nullopt, std::nullopt) ));
+  }
+  output.commands.emplace_back(new Kuka::Draw2DPenUp);
+  return output.compileKRL();
+}
+Kuka::Draw2DPath::Draw2DPath(const std::vector<Draw2DPoint>& points)
+    : points(points) {}
+Kuka::Draw2DPoint::Draw2DPoint(float x, float y) : x(x), y(y) {}

@@ -45,7 +45,12 @@ class PTP : public Command {
   Frame frame;
   PTP(Frame);
 };
-
+class Draw2DPoint {
+ public:
+  float x;
+  float y;
+  Draw2DPoint(float x, float y);
+};
 class Draw2DPenUp : public Command {
  public:
   const std::string compileKRL() override;
@@ -72,6 +77,12 @@ class Draw2DSquare : public Command {
   float length;
   float width;
   Draw2DSquare(float x, float y, float length, float width);
+  const std::string compileKRL() override;
+};
+class Draw2DPath : public Command {
+ public:
+  std::vector<Draw2DPoint> points;
+  Draw2DPath(const std::vector<Draw2DPoint>& points);
   const std::string compileKRL() override;
 };
 }
