@@ -60,16 +60,9 @@ int main(int argc, char **argv) {
    myProgram.commands.emplace_back(new Kuka::STARTWRAPPER());
    myProgram.commands.emplace_back(new Kuka::PTP(Kuka::Frame(350, -250, 425, 128, 31, 178)));
 
-   myProgram.commands.emplace_back(new Kuka::Draw2DLine(350,-250,400,-250));
-   myProgram.commands.emplace_back(new Kuka::Draw2DLine(350,-225,400,-225));
-   myProgram.commands.emplace_back(new Kuka::Draw2DLine(350,-200,400,-200));
-
-  myProgram.commands.emplace_back(new Kuka::Draw2DLine(350,-250,350,-300));
-  myProgram.commands.emplace_back(new Kuka::Draw2DLine(325,-250,325,-300));
-  myProgram.commands.emplace_back(new Kuka::Draw2DLine(300,-250,300,-300));
-
-  myProgram.commands.emplace_back(new Kuka::Draw2DSquare(300, -250, 20, 20));
-  myProgram.commands.emplace_back(new Kuka::Draw2DSquare(310, -260, 10, 10));
+  for (int i = 1; i < 10; i++) {
+    myProgram.commands.emplace_back(new Kuka::Draw2DSquare(300-(5*i), -250+(5*i), (i*10), (i*10)));
+  }
 
    myProgram.commands.emplace_back(new Kuka::ENDWRAPPER());
    outputFile.open(outputFileName, std::fstream::out);
