@@ -90,3 +90,8 @@ const std::string Kuka::Draw2DPath::compileKRL() {
 Kuka::Draw2DPath::Draw2DPath(const std::vector<Draw2DPoint>& points)
     : points(points) {}
 Kuka::Draw2DPoint::Draw2DPoint(float x, float y) : x(x), y(y) {}
+Kuka::Draw2DSpline::Draw2DSpline(const std::vector<Draw2DPoint>& points)
+    : points(points) {}
+const std::string Kuka::Draw2DSpline::compileKRL() {
+
+}

@@ -85,5 +85,11 @@ class Draw2DPath : public Command {
   Draw2DPath(const std::vector<Draw2DPoint>& points);
   const std::string compileKRL() override;
 };
+class Draw2DSpline : public Command {
+ public:
+  std::vector<Draw2DPoint> points;
+  Draw2DSpline(const std::vector<Draw2DPoint>& points);
+  const std::string compileKRL() override;
+};
 }
 #endif  // SYNTH_COMMAND_H
