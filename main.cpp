@@ -83,22 +83,41 @@ int main(int argc, char **argv) {
 
 
    // add commands to draw each line based on contiguous segments of white pixels in each row
+
   for (int i = 0; i<inputImage.rows; i++)
   {
     int lineStart = -1;
     int lineEnd = -1;
-    for (int j = 0; j<inputImage.cols; j++)
-    {
-      if(inputImage.at<uchar>(i, j) == 255){
-        if(lineStart == -1){
-          lineStart = j;
+    if(i % 2 == 0){
+      for (int j = 0; j<inputImage.cols; j++)
+      {
+        if(inputImage.at<uchar>(i, j) == 255){
+          if(lineStart == -1){
+            lineStart = j;
+          }
+          lineEnd = j;
+        }else{
+          if(lineStart != -1){
+            myProgram.commands.emplace_back(new Kuka::Draw2DPath({Kuka::Draw2DPoint((300 + (2 * i)), (-200 - (lineStart * 2))), Kuka::Draw2DPoint((300 + (2 * i)), (-200 - (lineEnd * 2)))}));
+            lineStart = -1;
+            lineEnd = -1;
+          }
         }
-        lineEnd = j;
-      }else{
-        if(lineStart != -1){
-          myProgram.commands.emplace_back(new Kuka::Draw2DPath({Kuka::Draw2DPoint((300 + (2 * i)), (-250 - (lineStart * 2))), Kuka::Draw2DPoint((300 + (2 * i)), (-250 - (lineEnd * 2)))}));
-          lineStart = -1;
-          lineEnd = -1;
+      }
+    }else{
+      for (int j = inputImage.cols; j > 0; j--)
+      {
+        if(inputImage.at<uchar>(i, j) == 255){
+          if(lineStart == -1){
+            lineStart = j;
+          }
+          lineEnd = j;
+        }else{
+          if(lineStart != -1){
+            myProgram.commands.emplace_back(new Kuka::Draw2DPath({Kuka::Draw2DPoint((300 + (2 * i)), (-200 - (lineStart * 2))), Kuka::Draw2DPoint((300 + (2 * i)), (-200 - (lineEnd * 2)))}));
+            lineStart = -1;
+            lineEnd = -1;
+          }
         }
       }
     }
