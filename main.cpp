@@ -60,6 +60,7 @@ int main(int argc, char **argv) {
   std::fstream outputFile;
 
   Mat inputImage = imread(inputPath);
+  Mat inputImageGray;
 
   // Error if image is empty
   if (inputImage.empty()) {
@@ -69,12 +70,15 @@ int main(int argc, char **argv) {
 
 
   // resize input image, convert to single color, write out for debugging purposes
-  resize(inputImage, inputImage, Size(), 0.25, 0.25, INTER_LANCZOS4);
-  cvtColor(inputImage, inputImage, COLOR_BGR2GRAY);
-  threshold(inputImage, inputImage, 10, 255, THRESH_BINARY);
+  cvtColor(inputImage, inputImageGray, COLOR_BGR2GRAY);
+  threshold(inputImageGray, inputImageGray, 10, 255, THRESH_BINARY);
   imwrite("debug.jpg", inputImage);
-
-
+  std::vector<std::vector<Point>> contours;
+  std::vector<Vec4i> hierarchy;
+  findContours(inputImageGray, contours, hierarchy, RETR_TREE, CHAIN_APPROX_SIMPLE);
+// draw contours on the original image
+  Mat image_copy = inputImage.clone();
+  drawContours(image_copy, contours, -1, Scalar(0, 255, 0), 2);
     // example
    Kuka::Group myProgram;
 
@@ -83,52 +87,61 @@ int main(int argc, char **argv) {
    // initialize pen
    myProgram.commands.emplace_back(new Kuka::PTP(Kuka::Frame(350, -250, 425, 128, 31, 178)));
 
+//  for (int i = 0; i < contours.size(); i++) {
+//    Kuka::Draw2DPath *path = new Kuka::Draw2DPath({});
+//    std::vector<Point> approxContour;
+//    approxPolyDP(contours[i], approxContour, (0.01 * arcLength(contours[i], true)), true);
+//    approxContour.emplace_back(approxContour[0]);
+//     for (int j = 0; j < approxContour.size(); j++) {
+//       path->points.emplace_back(Kuka::Draw2DPoint(
+//           (250 + (0.25 * approxContour[j].x)), (-200 - (0.25 * approxContour[j].y))));
+//     }
+//     std::cout << "wrote polygon with " << approxContour.size() << " points" << std::endl;
+//     myProgram.commands.emplace_back(path);
+//   }
 
-   // add commands to draw each line based on contiguous segments of white pixels in each row
+   myProgram.commands.emplace_back(new Kuka::Draw2DPath(
+       {
+            Kuka::Draw2DPoint(255, -190),
+            Kuka::Draw2DPoint(255, -200),
+       }
+       ));
+  myProgram.commands.emplace_back(new Kuka::Draw2DPath(
+      {
+           Kuka::Draw2DPoint(265, -190),
+           Kuka::Draw2DPoint(265, -200),
+      }
+  ));
+   myProgram.commands.emplace_back(new Kuka::Draw2DSpline(
+       {
+          Kuka::Draw2DPoint(250, -200),
+          Kuka::Draw2DPoint(260, -215),
+          Kuka::Draw2DPoint(270, -200),
+       }
+   ));
 
-  for (int i = 0; i<inputImage.rows; i++)
+  Kuka::Draw2DSpline *spline = new Kuka::Draw2DSpline({});
+
+  float x = 0;
+  float y = 0;
+  float angle = 0.0f;
+
+// Space between the spirals
+  int a = 2, b = 2;
+
+  for (int i = 0; i < 50; i++)
   {
-    int lineStart = -1;
-    int lineEnd = -1;
-    if(i % 2 == 0){
-      for (int j = 0; j<inputImage.cols; j++)
-      {
-        if(inputImage.at<uchar>(i, j) == 255){
-          if(lineStart == -1){
-            lineStart = j;
-          }
-          lineEnd = j;
-        }else{
-          if(lineStart != -1){
-            myProgram.commands.emplace_back(new Kuka::Draw2DPath({Kuka::Draw2DPoint((300 + (2 * i)), (-200 - (lineStart * 2))), Kuka::Draw2DPoint((300 + (2 * i)), (-200 - (lineEnd * 2)))}));
-            lineStart = -1;
-            lineEnd = -1;
-          }
-        }
-      }
-    }else{
-      for (int j = inputImage.cols; j > 0; j--)
-      {
-        if(inputImage.at<uchar>(i, j) == 255){
-          if(lineStart == -1){
-            lineStart = j;
-          }
-          lineEnd = j;
-        }else{
-          if(lineStart != -1){
-            myProgram.commands.emplace_back(new Kuka::Draw2DPath({Kuka::Draw2DPoint((300 + (2 * i)), (-200 - (lineStart * 2))), Kuka::Draw2DPoint((300 + (2 * i)), (-200 - (lineEnd * 2)))}));
-            lineStart = -1;
-            lineEnd = -1;
-          }
-        }
-      }
-    }
-    std::cout << std::endl;
-  }
+    angle = 0.1 * i;
+    x = 300 + (a + b * angle) * cos(angle);
+    y = -200 + (a + b * angle) * sin(angle);
 
+    spline->points.emplace_back(Kuka::Draw2DPoint(x, y));
+  }
+  myProgram.commands.emplace_back(spline);
   myProgram.commands.emplace_back(new Kuka::ENDWRAPPER());
    outputFile.open(outputPath, std::fstream::out);
    outputFile << myProgram.compileKRL();
    outputFile.close();
+
   return 0;
 }
