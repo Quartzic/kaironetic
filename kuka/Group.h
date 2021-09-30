@@ -14,5 +14,5 @@ class Group {
   std::vector<std::unique_ptr<Kuka::Command>> commands;
   std::string compileKRL();
 };
-}
+}  // namespace Kuka
 #endif  // SYNTH_GROUP_H

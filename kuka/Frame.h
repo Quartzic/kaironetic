@@ -5,8 +5,8 @@
 #ifndef SYNTH_FRAME_H
 #define SYNTH_FRAME_H
 
-#include <string>
 #include <optional>
+#include <string>
 
 namespace Kuka {
 class Frame {
@@ -22,5 +22,5 @@ class Frame {
         const std::optional<float>& z, const std::optional<float>& a,
         const std::optional<float>& b, const std::optional<float>& c);
 };
-}
+}  // namespace Kuka
 #endif  // SYNTH_FRAME_H
