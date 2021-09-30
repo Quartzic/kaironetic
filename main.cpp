@@ -2,9 +2,11 @@
 #include <filesystem>  // C++17
 #include <fstream>
 #include <iostream>
-#include "kuka/Command.h"
-#include "kuka/Group.h"
 #include <opencv2/opencv.hpp>
+
+#include "kuka/Command.h"
+#include "kuka/Draw2D.h"
+#include "kuka/Group.h"
 
 using namespace boost::program_options;
 using namespace cv;
