@@ -24,7 +24,6 @@ int main(int argc, char **argv) {
   // Get options
   po::options_description desc("Options for synth");
   desc.add_options()("help", "produce help message")
-      ("input", po::value<std::string>()->required(), "input file (raster image)")
       ("output", po::value<std::string>()->required()->default_value("synth_out.src"),"output file")
       ("overwrite", po::bool_switch()->default_value(false), "overwrite existing output files");
   po::store(po::parse_command_line(argc, argv, desc), vm);
@@ -39,14 +38,8 @@ int main(int argc, char **argv) {
   po::notify(vm);
 
   // Cast variables from  variable map
-  const std::string inputPath = vm["input"].as<std::string>();
   const std::string outputPath = vm["output"].as<std::string>();
   bool overwrite = vm["overwrite"].as<bool>();
-
-  // Error if input path is not a file
-  if (!fs::is_regular_file(inputPath)) {
-     throw std::invalid_argument(inputPath + " is not a file");
-  }
 
   if(!overwrite) {
     // Ensure the output file doesn't already exist
@@ -56,88 +49,134 @@ int main(int argc, char **argv) {
     }
   }
 
+    // open the first webcam plugged in the computer
+    cv::VideoCapture camera(0);
+    if (!camera.isOpened()) {
+        std::cerr << "ERROR: Could not open camera" << std::endl;
+        return 1;
+    }
 
-  std::fstream outputFile;
+    // create a window to display the images from the webcam
+    cv::namedWindow("Webcam", cv::WINDOW_AUTOSIZE);
 
-  Mat inputImage = imread(inputPath);
-  Mat inputImageGray;
+    // initialize the kuka program
+    std::fstream outputFile;
+    Kuka::Group myProgram;
+    myProgram.commands.emplace_back(new Kuka::STARTWRAPPER());
 
-  // Error if image is empty
-  if (inputImage.empty()) {
-    std::cerr << inputPath << " couldn't be read" << std::endl;
-    return -1;
-  }
+    // initialize pen
+    myProgram.commands.emplace_back(new Kuka::PTP(Kuka::Frame(350, -250, 425, 128, 31, 178)));
+
+    // setup opencv variables
+    cv::Mat rawFrame;
+    cv::Mat frame;
+    cv::Mat frame_grey;
+    cv::Mat frame_blurred;
+    cv::Mat frame_canny;
+    std::vector<std::vector<Point>> contours;
+    std::vector<Vec4i> hierarchy;
+    int contourTarget = 200;
+    int threshold1 = 100;
+    int threshold2 = 200;
+
+    while (1) {
+        // capture the next frame from the webcam
+        camera >> rawFrame;
+
+        // find contours (non-smoothed)
+        cv::resize(rawFrame, frame, Size(320, 180), INTER_LINEAR);
+        cv::GaussianBlur(frame, frame_blurred, Size(5, 5), 0);
+        cv::Canny(frame, frame_canny, threshold1, threshold2);
+        cv::findContours(frame_canny, contours, hierarchy, RETR_TREE, CHAIN_APPROX_SIMPLE);
+
+        // draw contours on image
+        Mat final = frame_blurred.clone();
+        drawContours(final, contours, -1, Scalar(0, 255, 0), 1);
+        cv::resize(final, final, Size(1280, 720), INTER_LINEAR);
 
 
-  // resize input image, convert to single color, write out for debugging purposes
-  cvtColor(inputImage, inputImageGray, COLOR_BGR2GRAY);
-  threshold(inputImageGray, inputImageGray, 10, 255, THRESH_BINARY);
-  imwrite("debug.jpg", inputImage);
-  std::vector<std::vector<Point>> contours;
-  std::vector<Vec4i> hierarchy;
-  findContours(inputImageGray, contours, hierarchy, RETR_TREE, CHAIN_APPROX_SIMPLE);
-// draw contours on the original image
-  Mat image_copy = inputImage.clone();
-  drawContours(image_copy, contours, -1, Scalar(0, 255, 0), 2);
-    // example
-   Kuka::Group myProgram;
+        // draw UI elements
 
-   myProgram.commands.emplace_back(new Kuka::STARTWRAPPER());
+        cv::putText(final, //target image
+                    "Synth (Q to quit)",
+                    cv::Point(10, 10), //top-left position
+                    cv::FONT_HERSHEY_PLAIN,
+                    1.0,
+                    CV_RGB(255, 0, 0), //font color
+                    1);
 
-   // initialize pen
-   myProgram.commands.emplace_back(new Kuka::PTP(Kuka::Frame(350, -250, 425, 128, 31, 178)));
+        cv::putText(final, //target image
+                    "Contour Target (W to increase, S to decrease): " + std::to_string(contourTarget), //text
+                    cv::Point(10, 20),
+                    cv::FONT_HERSHEY_PLAIN,
+                    1.0,
+                    CV_RGB(255, 0, 0), //font color
+                    1);
 
-//  for (int i = 0; i < contours.size(); i++) {
-//    Kuka::Draw2DPath *path = new Kuka::Draw2DPath({});
-//    std::vector<Point> approxContour;
-//    approxPolyDP(contours[i], approxContour, (0.01 * arcLength(contours[i], true)), true);
-//    approxContour.emplace_back(approxContour[0]);
-//     for (int j = 0; j < approxContour.size(); j++) {
-//       path->points.emplace_back(Kuka::Draw2DPoint(
-//           (250 + (0.25 * approxContour[j].x)), (-200 - (0.25 * approxContour[j].y))));
-//     }
-//     std::cout << "wrote polygon with " << approxContour.size() << " points" << std::endl;
-//     myProgram.commands.emplace_back(path);
-//   }
+        cv::putText(final, //target image
+                    "Contours: " + std::to_string(contours.size()), //text
+                    cv::Point(10, 40),
+                    cv::FONT_HERSHEY_PLAIN,
+                    1.0,
+                    CV_RGB(255, 0, 0), //font color
+                    1);
 
-   myProgram.commands.emplace_back(new Kuka::Draw2DPath(
-       {
-            Kuka::Draw2DPoint(255, -190),
-            Kuka::Draw2DPoint(255, -200),
-       }
-       ));
-  myProgram.commands.emplace_back(new Kuka::Draw2DPath(
-      {
-           Kuka::Draw2DPoint(265, -190),
-           Kuka::Draw2DPoint(265, -200),
-      }
-  ));
-   myProgram.commands.emplace_back(new Kuka::Draw2DSpline(
-       {
-          Kuka::Draw2DPoint(250, -200),
-          Kuka::Draw2DPoint(260, -215),
-          Kuka::Draw2DPoint(270, -200),
-       }
-   ));
+        // show the image on the window
+        cv::imshow("Webcam", final);
 
-  Kuka::Draw2DSpline *spline = new Kuka::Draw2DSpline({});
+        // adjust threshold to meet contour target
+        if(contours.size() > contourTarget){
+            threshold2 += 1;
+        }
+        if(contours.size() < contourTarget){
+            threshold2 -= 1;
+        }
 
-  float x = 0;
-  float y = 0;
-  float angle = 0.0f;
 
-// Space between the spirals
-  int a = 2, b = 2;
+        // await keypress
+        char keyPressed = cv::waitKey(10);
+        if (keyPressed == 'w'){
+            contourTarget += 5;
+        }else if(keyPressed == 's'){
+            contourTarget -= 5;
+        }
 
-  for (int i = 0; i < 50; i++)
-  {
-    angle = 0.1 * i;
-    x = 300 + (a + b * angle) * cos(angle);
-    y = -200 + (a + b * angle) * sin(angle);
+        if(keyPressed == 'q'){
+            break;
+        }
+        if(keyPressed == ' '){
+            std::vector<std::vector<Point>> smoothed;
+              for (int i = 0; i < contours.size(); i++) {
+                  // setup a new kuka 2D spline path
+                Kuka::Draw2DSpline *path = new Kuka::Draw2DSpline({});
 
-    spline->points.emplace_back(Kuka::Draw2DPoint(x, y));
-  }
-  myProgram.commands.emplace_back(spline);
+                // smooth the contour
+                std::vector<Point> approxContour;
+                approxPolyDP(contours[i], approxContour, (0.01 * arcLength(contours[i], true)), true);
+                // put the contour in the smoothed vector for later display
+                smoothed.emplace_back(approxContour);
+
+                  // for each point in the contour, add it to the 2d spline path
+                 for (int j = 0; j < approxContour.size(); j++) {
+                   path->points.emplace_back(Kuka::Draw2DPoint(
+                       (250 + (0.25 * approxContour[j].x)), (-200 - (0.25 * approxContour[j].y))));
+                 }
+
+                 // write it to the main program
+                 std::cout << "wrote spline with " << approxContour.size() << " points" << std::endl;
+                 myProgram.commands.emplace_back(path);
+               }
+
+              // display the smoothed contours
+              cv::Mat smoothedContourPreview = Mat::zeros(frame.size(), CV_8UC1);
+              drawContours(smoothedContourPreview, smoothed, -1, Scalar(255, 0, 0));
+              imshow("Final Preview", smoothedContourPreview);
+              cv::waitKey(0);
+              break;
+        }
+    }
+
+    // close the program
   myProgram.commands.emplace_back(new Kuka::ENDWRAPPER());
    outputFile.open(outputPath, std::fstream::out);
    outputFile << myProgram.compileKRL();
