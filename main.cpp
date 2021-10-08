@@ -59,14 +59,6 @@ int main(int argc, char **argv) {
 
     myCanvas->commands.emplace_back(myCanvas->drawBoundaries());
 
-    myCanvas->commands.emplace_back(
-            new Kuka::Draw2DPath({Kuka::Draw2DPoint(10, 10), Kuka::Draw2DPoint(20, 5)})
-            );
-
-    myCanvas->commands.emplace_back(
-            new Kuka::Draw2DPath({Kuka::Draw2DPoint(100, 100), Kuka::Draw2DPoint(120, 50)})
-    );
-
     for(int i = 1; i < 20; i++){
                 myCanvas->commands.emplace_back(
                         new Kuka::Draw2DPath({Kuka::Draw2DPoint(0, 10*i), Kuka::Draw2DPoint(myCanvas->width, 10*i)})
