@@ -11,6 +11,9 @@
 namespace Kuka {
 class Frame {
  public:
+    Frame();
+
+    Frame operator+(const Frame &input);
   std::string compileKRL();
   std::optional<float> x;
   std::optional<float> y;
