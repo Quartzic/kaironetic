@@ -15,52 +15,50 @@
 
 namespace Kuka {
 
-class Draw2DPoint {
- public:
-  float x;
-  float y;
-  Draw2DPoint(float x, float y);
-};
-class Draw2DPenUp : public Command {
- public:
-  const std::string compileKRL() override;
-  Draw2DPenUp();
-};
-class Draw2DPenDown : public Command {
- public:
-  const std::string compileKRL() override;
-  Draw2DPenDown();
-};
-class Draw2DLine : public Command {
- public:
-  float x1;
-  float y1;
-  float x2;
-  float y2;
-  Draw2DLine(float x1, float y1, float x2, float y2);
-  const std::string compileKRL() override;
-};
-class Draw2DSquare : public Command {
- public:
-  float x;
-  float y;
-  float length;
-  float width;
-  Draw2DSquare(float x, float y, float length, float width);
-  const std::string compileKRL() override;
-};
-class Draw2DPath : public Command {
- public:
-  std::vector<Draw2DPoint> points;
-  Draw2DPath(const std::vector<Draw2DPoint>& points);
-  const std::string compileKRL() override;
-};
-class Draw2DSpline : public Command {
- public:
-  std::vector<Draw2DPoint> points;
-  Draw2DSpline(const std::vector<Draw2DPoint>& points);
-  const std::string compileKRL() override;
-};
+    class Draw2DCommand;
+    class Draw2DCanvas;
+    class Draw2DPoint;
+    class Draw2DPath;
+
+    class Draw2DCommand {
+    public:
+        virtual const Draw2DPoint getStartPoint() = 0;
+        virtual const std::string compileKRL(Draw2DCanvas * canvas) = 0;
+    };
+
+    class Draw2DCanvas : public Command {
+    public:
+        Kuka::Frame origin;
+        float width;
+        float height;
+
+        Draw2DCanvas(const Frame &origin, float width, float height);
+        std::vector<std::unique_ptr<Draw2DCommand>> commands;
+        const std::string compileKRL();
+        Kuka::Draw2DPath* drawBoundaries();
+        Kuka::Frame pointToFrame(Draw2DPoint input);
+        Kuka::Frame penUp();
+        Kuka::Frame penDown();
+    };
+
+    class Draw2DPoint {
+    public:
+        float x;
+        float y;
+
+        Draw2DPoint(float x, float y);
+        float distanceTo(Draw2DPoint input);
+    };
+
+    class Draw2DPath : public Draw2DCommand {
+    public:
+        std::vector<Draw2DPoint> points;
+
+        Draw2DPath(const std::vector<Draw2DPoint> &points);
+
+        const Draw2DPoint getStartPoint() override;
+        const std::string compileKRL(Draw2DCanvas * canvas) override;
+    };
 };  // namespace Kuka
 
 #endif  // SYNTH_DRAW2D_H
