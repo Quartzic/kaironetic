@@ -64,7 +64,8 @@ const std::string Kuka::STARTWRAPPER::compileKRL() {
          "$ACC_AXIS[1] = SACC_JOINT(PDEFAULT), $APO = SAPO_PTP(PDEFAULT), "
          "$GEAR_JERK[1] = SGEAR_JERK(PDEFAULT), $COLLMON_TOL_PRO[1] = "
          "USE_CM_PRO_VALUES(0)\n"
-         ";ENDFOLD\n";
+         ";ENDFOLD\n"
+         "$VEL.CP=0.2";
 }
 const std::string Kuka::ENDWRAPPER::compileKRL() {
   return ";FOLD SPTP HOME Vel=100 % DEFAULT ;%{PE}\n"
