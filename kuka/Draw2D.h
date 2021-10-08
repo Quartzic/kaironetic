@@ -23,6 +23,7 @@ namespace Kuka {
     class Draw2DCommand {
     public:
         virtual const Draw2DPoint getStartPoint() = 0;
+        virtual const Draw2DPoint getEndPoint() = 0;
         virtual const std::string compileKRL(Draw2DCanvas * canvas) = 0;
     };
 
@@ -57,6 +58,7 @@ namespace Kuka {
         Draw2DPath(const std::vector<Draw2DPoint> &points);
 
         const Draw2DPoint getStartPoint() override;
+        const Draw2DPoint getEndPoint() override;
         const std::string compileKRL(Draw2DCanvas * canvas) override;
     };
 };  // namespace Kuka

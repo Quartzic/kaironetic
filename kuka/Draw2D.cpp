@@ -28,6 +28,9 @@ Kuka::Draw2DPath::Draw2DPath(const std::vector<Draw2DPoint>& points)
 const Kuka::Draw2DPoint Kuka::Draw2DPath::getStartPoint() {
     return this->points[0];
 }
+const Kuka::Draw2DPoint Kuka::Draw2DPath::getEndPoint() {
+    return this->points[this->points.size()];
+}
 
 Kuka::Draw2DPoint::Draw2DPoint(float x, float y) : x(x), y(y) {}
 
@@ -85,7 +88,7 @@ const std::string Kuka::Draw2DCanvas::compileKRL() {
             if(possibleDistance < cheapestNextDistance){
                 cheapestNextDistance = possibleDistance;
                 cheapestNextCommand = i;
-                lastVisitedPoint()
+                lastVisitedPoint = commands[i]->getEndPoint();
             }
 
         }
