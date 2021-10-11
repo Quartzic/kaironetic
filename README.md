@@ -1,15 +1,16 @@
-# Description
-Synth allows you to quickly create Kuka programs.
+# Kaironetic
 
-# Usage
-Run `synth` to see the available arguments.
+Kaironetic is a C++ library for creating KUKA Robotics Language (KRL) code.
 
-# Build
-```
-git clone https://github.com/Quartzic/synth.git
-cd synth
-cmake . && cmake --build .
-```
+## Installation
 
-# Requirements
-To compile from source, this project requires [Boost](https://github.com/boostorg/boost) and [CMake](https://cmake.org) 3.17 or greater.
+WIP
+
+## Usage
+
+WIP
+
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.

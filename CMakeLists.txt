@@ -1,20 +1,23 @@
-cmake_minimum_required(VERSION 3.17)
-project(synth)
+cmake_minimum_required(VERSION 3.20)
+project(kaironetic)
 
-find_package( OpenCV REQUIRED )
-find_package( Boost REQUIRED COMPONENTS program_options )
-find_package( fmt REQUIRED )
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_APPLE_SILICON_PROCESSOR arm64)
 
-add_executable(synth main.cpp)
+find_package(OpenCV REQUIRED)
+find_package(Boost REQUIRED)
 
-# CMake instructions to make the static lib
+include_directories(${Boost_INCLUDE_DIRS} include/ src/)
 
-ADD_LIBRARY(kaironetic STATIC kaironetic/Command.cpp kaironetic/Draw2D.cpp kaironetic/Frame.cpp kaironetic/Group.cpp)
+# kaironetic library
+add_library(kaironetic src/Draw2D/Canvas.cpp src/Draw2D/Command.h src/Draw2D/Path.cpp src/Draw2D/Point.cpp src/KRL/Command.cpp src/KRL/Frame.cpp src/KRL/Group.cpp)
+target_link_libraries(kaironetic ${Boost_LIBRARIES})
 
-include_directories( ${Boost_INCLUDE_DIRS} include/ )
-target_link_libraries( synth ${Boost_PROGRAM_OPTIONS_LIBRARY} )
-target_link_libraries( synth ${OpenCV_LIBS} )
-target_link_libraries( synth fmt::fmt)
-target_link_libraries( synth kaironetic)
+# tests
+add_executable(tests test/KRL/FrameTest.cpp test/Draw2D/CanvasTest.cpp)
+target_link_libraries(tests kaironetic)
+
+# examples
+add_executable(draw_evenly_spaced_lines example/draw_evenly_spaced_lines.cpp)
+target_link_libraries(draw_evenly_spaced_lines kaironetic)
+target_link_libraries(draw_evenly_spaced_lines ${OpenCV_LIBS})
