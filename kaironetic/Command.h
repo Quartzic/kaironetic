@@ -11,7 +11,7 @@
 
 #include "Frame.h"
 
-namespace Kuka {
+namespace Kaironetic {
 
 class Command {
  public:

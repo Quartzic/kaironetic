@@ -8,10 +8,10 @@
 #include <vector>
 
 #include "Command.h"
-namespace Kuka {
+namespace Kaironetic {
 class Group {
  public:
-  std::vector<std::unique_ptr<Kuka::Command>> commands;
+  std::vector<std::unique_ptr<Kaironetic::Command>> commands;
   std::string compileKRL();
 };
 }  // namespace Kuka

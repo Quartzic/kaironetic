@@ -6,30 +6,30 @@
 
 #include "Group.h"
 
-const std::string Kuka::LIN::compileKRL() {
+const std::string Kaironetic::LIN::compileKRL() {
   return "LIN " + frame.compileKRL();
 }
-Kuka::LIN::LIN(Frame frame) : frame(frame) {}
+Kaironetic::LIN::LIN(Frame frame) : frame(frame) {}
 
-const std::string Kuka::PTP::compileKRL() {
+const std::string Kaironetic::PTP::compileKRL() {
   return "PTP " + frame.compileKRL();
 }
-Kuka::PTP::PTP(Frame frame) : frame(frame) {
+Kaironetic::PTP::PTP(Frame frame) : frame(frame) {
 
 }
-const std::string Kuka::SPL::compileKRL() {
+const std::string Kaironetic::SPL::compileKRL() {
   return "SPL " + frame.compileKRL();
 }
-Kuka::SPL::SPL(Frame frame) : frame(frame) {
+Kaironetic::SPL::SPL(Frame frame) : frame(frame) {
 
 }
-const std::string Kuka::SPLINE::compileKRL() {
+const std::string Kaironetic::SPLINE::compileKRL() {
   return "SPLINE";
 }
-const std::string Kuka::ENDSPLINE::compileKRL() {
+const std::string Kaironetic::ENDSPLINE::compileKRL() {
   return "ENDSPLINE";
 }
-const std::string Kuka::STARTWRAPPER::compileKRL() {
+const std::string Kaironetic::STARTWRAPPER::compileKRL() {
   return "&ACCESS RVP\n"
          "&REL 17\n"
          "&PARAM EDITMASK = *\n"
@@ -67,7 +67,7 @@ const std::string Kuka::STARTWRAPPER::compileKRL() {
          ";ENDFOLD\n"
          "$VEL.CP=0.2";
 }
-const std::string Kuka::ENDWRAPPER::compileKRL() {
+const std::string Kaironetic::ENDWRAPPER::compileKRL() {
   return ";FOLD SPTP HOME Vel=100 % DEFAULT ;%{PE}\n"
          ";FOLD Parameters ;%{h}\n"
          ";Params "
@@ -88,7 +88,7 @@ const std::string Kuka::ENDWRAPPER::compileKRL() {
          "\n"
          "END";
 }
-Kuka::Comment::Comment(const std::string comment) : comment(comment) {}
-const std::string Kuka::Comment::compileKRL() {
+Kaironetic::Comment::Comment(const std::string comment) : comment(comment) {}
+const std::string Kaironetic::Comment::compileKRL() {
   return std::string("; " + comment);
 }

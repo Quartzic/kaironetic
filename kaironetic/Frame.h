@@ -8,7 +8,7 @@
 #include <optional>
 #include <string>
 
-namespace Kuka {
+namespace Kaironetic {
 class Frame {
  public:
     Frame();

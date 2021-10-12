@@ -3,7 +3,7 @@
 //
 
 #include "Group.h"
-std::string Kuka::Group::compileKRL() {
+std::string Kaironetic::Group::compileKRL() {
   std::string output;
   for (int i = 0; i < commands.size(); i++) {
     output += (commands[i]->compileKRL() + "\n");

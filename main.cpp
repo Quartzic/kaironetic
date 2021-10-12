@@ -50,12 +50,12 @@ int main(int argc, char **argv) {
           outputPath + " already exists, delete it or set --overwrite");
     }
   }
-    // initialize the kuka program
+    // initialize the kaironetic program
     std::fstream outputFile;
-    Kuka::Group myProgram;
-    myProgram.commands.emplace_back(new Kuka::STARTWRAPPER());
+    Kaironetic::Group myProgram;
+    myProgram.commands.emplace_back(new Kaironetic::STARTWRAPPER());
 
-    Kuka::Draw2DCanvas *myCanvas = new Kuka::Draw2DCanvas(Kuka::Frame(215, -130, 405, 128, 31, 178), 150, 250);
+    Kaironetic::Draw2DCanvas *myCanvas = new Kaironetic::Draw2DCanvas(Kaironetic::Frame(215, -130, 405, 128, 31, 178), 150, 250);
 
     myCanvas->commands.emplace_back(myCanvas->drawBoundaries());
 
@@ -68,7 +68,7 @@ int main(int argc, char **argv) {
     myProgram.commands.emplace_back(myCanvas);
 
     // close the program
-  myProgram.commands.emplace_back(new Kuka::ENDWRAPPER());
+  myProgram.commands.emplace_back(new Kaironetic::ENDWRAPPER());
    outputFile.open(outputPath, std::fstream::out);
    outputFile << myProgram.compileKRL();
    outputFile.close();

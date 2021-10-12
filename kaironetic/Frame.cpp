@@ -7,7 +7,7 @@
 #include <boost/algorithm/string/join.hpp>
 #include <vector>
 
-std::string Kuka::Frame::compileKRL() {
+std::string Kaironetic::Frame::compileKRL() {
   std::vector<std::string> unwrappedArguments;
 
   if (x) {
@@ -32,16 +32,16 @@ std::string Kuka::Frame::compileKRL() {
   return "{" + boost::algorithm::join(unwrappedArguments, ",") + "}";
 }
 
-Kuka::Frame::Frame(const std::optional<float>& x, const std::optional<float>& y,
-                   const std::optional<float>& z, const std::optional<float>& a,
-                   const std::optional<float>& b, const std::optional<float>& c)
+Kaironetic::Frame::Frame(const std::optional<float>& x, const std::optional<float>& y,
+                         const std::optional<float>& z, const std::optional<float>& a,
+                         const std::optional<float>& b, const std::optional<float>& c)
     : x(x), y(y), z(z), a(a), b(b), c(c) {}
 
-Kuka::Frame::Frame()
+Kaironetic::Frame::Frame()
         : x(std::nullopt), y(std::nullopt), z(std::nullopt), a(std::nullopt), b(std::nullopt), c(std::nullopt) {}
 
-Kuka::Frame Kuka::Frame::operator+(const Kuka::Frame &input) {
-    Kuka::Frame output;
+Kaironetic::Frame Kaironetic::Frame::operator+(const Kaironetic::Frame &input) {
+    Kaironetic::Frame output;
     if(this->x && input.x){
         output.x = this->x.value() + input.x.value();
     }else if(this->x){
