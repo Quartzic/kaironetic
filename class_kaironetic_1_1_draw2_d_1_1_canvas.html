@@ -74,13 +74,18 @@ $(function() {
 <div class="title">Kaironetic::Draw2D::Canvas Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Represents a 2D canvas.  
+ <a href="class_kaironetic_1_1_draw2_d_1_1_canvas.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_canvas_8h_source.html">Canvas.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Kaironetic::Draw2D::Canvas:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_kaironetic_1_1_draw2_d_1_1_canvas.png" usemap="#Kaironetic::Draw2D::Canvas_map" alt=""/>
   <map id="Kaironetic::Draw2D::Canvas_map" name="Kaironetic::Draw2D::Canvas_map">
-<area href="class_kaironetic_1_1_k_r_l_1_1_command.html" alt="Kaironetic::KRL::Command" shape="rect" coords="0,0,170,24"/>
+<area href="class_kaironetic_1_1_k_r_l_1_1_command.html" title="Any structure that can be compiled into KRL." alt="Kaironetic::KRL::Command" shape="rect" coords="0,0,170,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -89,9 +94,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a5f56d2472c53ec7d222018a58720be53"><td class="memItemLeft" align="right" valign="top"><a id="a5f56d2472c53ec7d222018a58720be53"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Canvas</b> (const <a class="el" href="class_kaironetic_1_1_k_r_l_1_1_frame.html">KRL::Frame</a> &amp;<a class="el" href="class_kaironetic_1_1_draw2_d_1_1_canvas.html#a1a1dd410f117981a22482c93e28ebb39">origin</a>, float <a class="el" href="class_kaironetic_1_1_draw2_d_1_1_canvas.html#a03d3ba0be655b7bd14cd25c5deb9d88d">width</a>, float <a class="el" href="class_kaironetic_1_1_draw2_d_1_1_canvas.html#ac5407acee20ede2d947f6b7e81d2a198">height</a>)</td></tr>
 <tr class="separator:a5f56d2472c53ec7d222018a58720be53"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a25d4717c250a53250de1e9eaf75c8d6d"><td class="memItemLeft" align="right" valign="top"><a id="a25d4717c250a53250de1e9eaf75c8d6d"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_kaironetic_1_1_draw2_d_1_1_canvas.html#a25d4717c250a53250de1e9eaf75c8d6d">compileKRL</a> () override</td></tr>
-<tr class="memdesc:a25d4717c250a53250de1e9eaf75c8d6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Uses a nearest-neighbor algorithm to sort Draw2DCommands by distance. Returns KRL to draw every Draw2DCommand in this Draw2DCanvas. <br /></td></tr>
+<tr class="memitem:a25d4717c250a53250de1e9eaf75c8d6d"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_kaironetic_1_1_draw2_d_1_1_canvas.html#a25d4717c250a53250de1e9eaf75c8d6d">compileKRL</a> () override</td></tr>
+<tr class="memdesc:a25d4717c250a53250de1e9eaf75c8d6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Uses a nearest-neighbor algorithm to sort by distance; then, returns KRL to draw every <a class="el" href="class_kaironetic_1_1_draw2_d_1_1_command.html" title="Any Command that must be compiled with respect to a Canvas.">Draw2D::Command</a> in this <a class="el" href="class_kaironetic_1_1_draw2_d_1_1_canvas.html" title="Represents a 2D canvas.">Canvas</a>.  <a href="class_kaironetic_1_1_draw2_d_1_1_canvas.html#a25d4717c250a53250de1e9eaf75c8d6d">More...</a><br /></td></tr>
 <tr class="separator:a25d4717c250a53250de1e9eaf75c8d6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a08fc9cd453df68cec7d68797eacd6b27"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_kaironetic_1_1_draw2_d_1_1_path.html">Kaironetic::Draw2D::Path</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_kaironetic_1_1_draw2_d_1_1_canvas.html#a08fc9cd453df68cec7d68797eacd6b27">drawBoundaries</a> () const</td></tr>
 <tr class="separator:a08fc9cd453df68cec7d68797eacd6b27"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -122,7 +126,40 @@ float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cla
 std::__1::vector&lt; std::__1::unique_ptr&lt; <a class="el" href="class_kaironetic_1_1_draw2_d_1_1_command.html">Draw2D::Command</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>commands</b></td></tr>
 <tr class="separator:a9dea6b976e4d21c0da7909ed3e8c285d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Represents a 2D canvas. </p>
+<p><a class="el" href="class_kaironetic_1_1_draw2_d_1_1_canvas.html" title="Represents a 2D canvas.">Canvas</a> provides the appropriate facilities to draw on a plane; for example, a piece of paper. It will store a set of Draw2DCommands and sort their draw order to decrease unnecessary travel; therefore, do not rely on a specific ordering. If you attempt to draw outside of the defined boundaries of the <a class="el" href="class_kaironetic_1_1_draw2_d_1_1_canvas.html" title="Represents a 2D canvas.">Canvas</a>, an exception will be thrown. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a25d4717c250a53250de1e9eaf75c8d6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25d4717c250a53250de1e9eaf75c8d6d">&#9670;&nbsp;</a></span>compileKRL()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Draw2D::Canvas::compileKRL </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Uses a nearest-neighbor algorithm to sort by distance; then, returns KRL to draw every <a class="el" href="class_kaironetic_1_1_draw2_d_1_1_command.html" title="Any Command that must be compiled with respect to a Canvas.">Draw2D::Command</a> in this <a class="el" href="class_kaironetic_1_1_draw2_d_1_1_canvas.html" title="Represents a 2D canvas.">Canvas</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>Returns a string representing this <a class="el" href="class_kaironetic_1_1_draw2_d_1_1_canvas.html" title="Represents a 2D canvas.">Canvas</a> and each <a class="el" href="class_kaironetic_1_1_draw2_d_1_1_command.html" title="Any Command that must be compiled with respect to a Canvas.">Draw2D::Command</a> that it contains. </dd></dl>
+
+<p>Implements <a class="el" href="class_kaironetic_1_1_k_r_l_1_1_command.html">Kaironetic::KRL::Command</a>.</p>
+
+</div>
+</div>
 <a id="a08fc9cd453df68cec7d68797eacd6b27"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a08fc9cd453df68cec7d68797eacd6b27">&#9670;&nbsp;</a></span>drawBoundaries()</h2>
 
@@ -137,7 +174,7 @@ std::__1::vector&lt; std::__1::unique_ptr&lt; <a class="el" href="class_kaironet
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>Returns a <a class="el" href="class_kaironetic_1_1_draw2_d_1_1_path.html">Path</a> representing the boundaries of the canvas. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns a <a class="el" href="class_kaironetic_1_1_draw2_d_1_1_path.html" title="Represents a two-dimensional path.">Path</a> representing the boundaries of the canvas. </dd></dl>
 
 </div>
 </div>

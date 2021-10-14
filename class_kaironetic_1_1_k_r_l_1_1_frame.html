@@ -74,17 +74,23 @@ $(function() {
 <div class="title">Kaironetic::KRL::Frame Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Data structure representing an arm position.  
+ <a href="class_kaironetic_1_1_k_r_l_1_1_frame.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_frame_8h_source.html">Frame.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a6d1f8102a235cb2b8c699622a8d8f483"><td class="memItemLeft" align="right" valign="top"><a id="a6d1f8102a235cb2b8c699622a8d8f483"></a>
-<a class="el" href="class_kaironetic_1_1_k_r_l_1_1_frame.html">Frame</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator+</b> (const <a class="el" href="class_kaironetic_1_1_k_r_l_1_1_frame.html">Frame</a> &amp;rhs)</td></tr>
+<a class="el" href="class_kaironetic_1_1_k_r_l_1_1_frame.html">Frame</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_kaironetic_1_1_k_r_l_1_1_frame.html#a6d1f8102a235cb2b8c699622a8d8f483">operator+</a> (const <a class="el" href="class_kaironetic_1_1_k_r_l_1_1_frame.html">Frame</a> &amp;rhs)</td></tr>
+<tr class="memdesc:a6d1f8102a235cb2b8c699622a8d8f483"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds two Frames together. <br /></td></tr>
 <tr class="separator:a6d1f8102a235cb2b8c699622a8d8f483"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeb6349caf876a76f5c7d950ed242ec76"><td class="memItemLeft" align="right" valign="top"><a id="aeb6349caf876a76f5c7d950ed242ec76"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="class_kaironetic_1_1_k_r_l_1_1_frame.html">Frame</a> &amp;rhs)</td></tr>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_kaironetic_1_1_k_r_l_1_1_frame.html#aeb6349caf876a76f5c7d950ed242ec76">operator==</a> (const <a class="el" href="class_kaironetic_1_1_k_r_l_1_1_frame.html">Frame</a> &amp;rhs)</td></tr>
+<tr class="memdesc:aeb6349caf876a76f5c7d950ed242ec76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if Frames are equal to each other. <br /></td></tr>
 <tr class="separator:aeb6349caf876a76f5c7d950ed242ec76"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac50d243e5d2842fe84e2aa0a9efed505"><td class="memItemLeft" align="right" valign="top"><a id="ac50d243e5d2842fe84e2aa0a9efed505"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>compileKRL</b> ()</td></tr>
+<tr class="memitem:ac50d243e5d2842fe84e2aa0a9efed505"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_kaironetic_1_1_k_r_l_1_1_frame.html#ac50d243e5d2842fe84e2aa0a9efed505">compileKRL</a> ()</td></tr>
 <tr class="separator:ac50d243e5d2842fe84e2aa0a9efed505"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d7607baf9529437366d0d0fc4697001"><td class="memItemLeft" align="right" valign="top"><a id="a0d7607baf9529437366d0d0fc4697001"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Frame</b> (const std::optional&lt; float &gt; &amp;<a class="el" href="class_kaironetic_1_1_k_r_l_1_1_frame.html#a162d351e79e1622cd8d786544120adb2">x</a>, const std::optional&lt; float &gt; &amp;<a class="el" href="class_kaironetic_1_1_k_r_l_1_1_frame.html#ab3450857197d760c37798e1c88f90985">y</a>, const std::optional&lt; float &gt; &amp;<a class="el" href="class_kaironetic_1_1_k_r_l_1_1_frame.html#a84268f54a50b278f18349e966502d141">z</a>, const std::optional&lt; float &gt; &amp;<a class="el" href="class_kaironetic_1_1_k_r_l_1_1_frame.html#a993b02cc532a469f8257a6e04fa3a666">a</a>, const std::optional&lt; float &gt; &amp;<a class="el" href="class_kaironetic_1_1_k_r_l_1_1_frame.html#a38dee64c0026b027ec9c4c8f111394c1">b</a>, const std::optional&lt; float &gt; &amp;<a class="el" href="class_kaironetic_1_1_k_r_l_1_1_frame.html#a212b8ba01b6542fff15e78575d01f38e">c</a>)</td></tr>
@@ -117,6 +123,27 @@ std::optional&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom">
 <tr class="memdesc:a212b8ba01b6542fff15e78575d01f38e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Value of the C axis, in degrees. <br /></td></tr>
 <tr class="separator:a212b8ba01b6542fff15e78575d01f38e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Data structure representing an arm position. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="ac50d243e5d2842fe84e2aa0a9efed505"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac50d243e5d2842fe84e2aa0a9efed505">&#9670;&nbsp;</a></span>compileKRL()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Kaironetic::KRL::Frame::compileKRL </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section return"><dt>Returns</dt><dd>Returns a string representing this <a class="el" href="class_kaironetic_1_1_k_r_l_1_1_frame.html" title="Data structure representing an arm position.">Frame</a> in KRL. </dd></dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/KRL/<a class="el" href="_frame_8h_source.html">Frame.h</a></li>
 <li>src/KRL/Frame.cpp</li>

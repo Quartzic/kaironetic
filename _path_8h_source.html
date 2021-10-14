@@ -86,27 +86,27 @@ $(function() {
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">using namespace </span>Kaironetic;</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">namespace </span>Kaironetic::Draw2D {</div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="class_kaironetic_1_1_draw2_d_1_1_path.html">   17</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_kaironetic_1_1_draw2_d_1_1_path.html">Path</a> : <span class="keyword">public</span> <a class="code" href="class_kaironetic_1_1_draw2_d_1_1_command.html">Draw2D::Command</a> {</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        std::__1::vector&lt;Draw2D::Point&gt; points;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <a class="code" href="class_kaironetic_1_1_draw2_d_1_1_path.html">Path</a>(<span class="keyword">const</span> std::__1::vector&lt;Draw2D::Point&gt; &amp;points);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <a class="code" href="class_kaironetic_1_1_draw2_d_1_1_point.html">Draw2D::Point</a> <a class="code" href="class_kaironetic_1_1_draw2_d_1_1_path.html#ada8d765ffb8c33ffc5ade1f235afe39a">getStartPoint</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <a class="code" href="class_kaironetic_1_1_draw2_d_1_1_point.html">Draw2D::Point</a> <a class="code" href="class_kaironetic_1_1_draw2_d_1_1_path.html#afd636b4f87bd516d11982b6c3103d5b5">getEndPoint</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        std::string compileKRL(<a class="code" href="class_kaironetic_1_1_draw2_d_1_1_canvas.html">Draw2D::Canvas</a> *canvas) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    };</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;}</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//SYNTH_PATH_H</span></div>
-<div class="ttc" id="aclass_kaironetic_1_1_draw2_d_1_1_canvas_html"><div class="ttname"><a href="class_kaironetic_1_1_draw2_d_1_1_canvas.html">Kaironetic::Draw2D::Canvas</a></div><div class="ttdef"><b>Definition:</b> Canvas.h:19</div></div>
-<div class="ttc" id="aclass_kaironetic_1_1_draw2_d_1_1_command_html"><div class="ttname"><a href="class_kaironetic_1_1_draw2_d_1_1_command.html">Kaironetic::Draw2D::Command</a></div><div class="ttdef"><b>Definition:</b> Command.h:13</div></div>
-<div class="ttc" id="aclass_kaironetic_1_1_draw2_d_1_1_path_html"><div class="ttname"><a href="class_kaironetic_1_1_draw2_d_1_1_path.html">Kaironetic::Draw2D::Path</a></div><div class="ttdef"><b>Definition:</b> Path.h:17</div></div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="class_kaironetic_1_1_draw2_d_1_1_path.html">   18</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_kaironetic_1_1_draw2_d_1_1_path.html">Path</a> : <span class="keyword">public</span> <a class="code" href="class_kaironetic_1_1_draw2_d_1_1_command.html">Draw2D::Command</a> {</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        std::__1::vector&lt;Draw2D::Point&gt; points;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <a class="code" href="class_kaironetic_1_1_draw2_d_1_1_path.html">Path</a>(<span class="keyword">const</span> std::__1::vector&lt;Draw2D::Point&gt; &amp;points);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <a class="code" href="class_kaironetic_1_1_draw2_d_1_1_point.html">Draw2D::Point</a> <a class="code" href="class_kaironetic_1_1_draw2_d_1_1_path.html#ada8d765ffb8c33ffc5ade1f235afe39a">getStartPoint</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <a class="code" href="class_kaironetic_1_1_draw2_d_1_1_point.html">Draw2D::Point</a> <a class="code" href="class_kaironetic_1_1_draw2_d_1_1_path.html#afd636b4f87bd516d11982b6c3103d5b5">getEndPoint</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        std::string compileKRL(<a class="code" href="class_kaironetic_1_1_draw2_d_1_1_canvas.html">Draw2D::Canvas</a> *canvas) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    };</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;}</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//SYNTH_PATH_H</span></div>
+<div class="ttc" id="aclass_kaironetic_1_1_draw2_d_1_1_canvas_html"><div class="ttname"><a href="class_kaironetic_1_1_draw2_d_1_1_canvas.html">Kaironetic::Draw2D::Canvas</a></div><div class="ttdoc">Represents a 2D canvas.</div><div class="ttdef"><b>Definition:</b> Canvas.h:24</div></div>
+<div class="ttc" id="aclass_kaironetic_1_1_draw2_d_1_1_command_html"><div class="ttname"><a href="class_kaironetic_1_1_draw2_d_1_1_command.html">Kaironetic::Draw2D::Command</a></div><div class="ttdoc">Any Command that must be compiled with respect to a Canvas.</div><div class="ttdef"><b>Definition:</b> Command.h:14</div></div>
+<div class="ttc" id="aclass_kaironetic_1_1_draw2_d_1_1_path_html"><div class="ttname"><a href="class_kaironetic_1_1_draw2_d_1_1_path.html">Kaironetic::Draw2D::Path</a></div><div class="ttdoc">Represents a two-dimensional path.</div><div class="ttdef"><b>Definition:</b> Path.h:18</div></div>
 <div class="ttc" id="aclass_kaironetic_1_1_draw2_d_1_1_path_html_ada8d765ffb8c33ffc5ade1f235afe39a"><div class="ttname"><a href="class_kaironetic_1_1_draw2_d_1_1_path.html#ada8d765ffb8c33ffc5ade1f235afe39a">Kaironetic::Draw2D::Path::getStartPoint</a></div><div class="ttdeci">Draw2D::Point getStartPoint() override</div><div class="ttdoc">Get the first point.</div><div class="ttdef"><b>Definition:</b> Path.cpp:21</div></div>
 <div class="ttc" id="aclass_kaironetic_1_1_draw2_d_1_1_path_html_afd636b4f87bd516d11982b6c3103d5b5"><div class="ttname"><a href="class_kaironetic_1_1_draw2_d_1_1_path.html#afd636b4f87bd516d11982b6c3103d5b5">Kaironetic::Draw2D::Path::getEndPoint</a></div><div class="ttdeci">Draw2D::Point getEndPoint() override</div><div class="ttdoc">Get the last point.</div><div class="ttdef"><b>Definition:</b> Path.cpp:25</div></div>
-<div class="ttc" id="aclass_kaironetic_1_1_draw2_d_1_1_point_html"><div class="ttname"><a href="class_kaironetic_1_1_draw2_d_1_1_point.html">Kaironetic::Draw2D::Point</a></div><div class="ttdef"><b>Definition:</b> Point.h:6</div></div>
+<div class="ttc" id="aclass_kaironetic_1_1_draw2_d_1_1_point_html"><div class="ttname"><a href="class_kaironetic_1_1_draw2_d_1_1_point.html">Kaironetic::Draw2D::Point</a></div><div class="ttdoc">Two-dimensional point.</div><div class="ttdef"><b>Definition:</b> Point.h:7</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
