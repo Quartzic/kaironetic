@@ -6,6 +6,7 @@ set(CMAKE_APPLE_SILICON_PROCESSOR arm64)
 
 find_package(OpenCV REQUIRED)
 find_package(Boost REQUIRED)
+find_package(Catch2 REQUIRED)
 
 include_directories(${Boost_INCLUDE_DIRS} include/ src/)
 
@@ -16,6 +17,13 @@ target_link_libraries(kaironetic ${Boost_LIBRARIES})
 # tests
 add_executable(tests test/KRL/FrameTest.cpp test/Draw2D/CanvasTest.cpp)
 target_link_libraries(tests kaironetic)
+target_link_libraries(tests Catch2::Catch2)
+
+include(CTest)
+include(Catch)
+
+enable_testing()
+catch_discover_tests(tests)
 
 # examples
 add_executable(draw_evenly_spaced_lines example/draw_evenly_spaced_lines.cpp)
