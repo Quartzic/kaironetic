@@ -29,6 +29,8 @@ namespace Kaironetic::Draw2D {
 
         std::string compileKRL(Draw2D::Canvas *canvas) override;
     };
+
+    Path *drawRectangle(Point origin, float width, float height);
 }
 
 #endif //SYNTH_PATH_H

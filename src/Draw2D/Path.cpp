@@ -25,3 +25,11 @@ Kaironetic::Draw2D::Point Path::getStartPoint() {
 Kaironetic::Draw2D::Point Path::getEndPoint() {
     return this->points[this->points.size()];
 }
+
+Path *Kaironetic::Draw2D::drawRectangle(Point origin, float width, float height) {
+    return new Draw2D::Path(
+            {Draw2D::Point(origin.x, origin.y), Draw2D::Point(origin.x + width, origin.y),
+             Draw2D::Point(origin.x + width, origin.y + height),
+             Draw2D::Point(origin.x, origin.y + height),
+             Draw2D::Point(origin.x, origin.y)});
+}
