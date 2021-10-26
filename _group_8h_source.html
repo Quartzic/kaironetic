@@ -74,19 +74,20 @@ $(function() {
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define SYNTH_GROUP_H</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;Command.h&quot;</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace </span>Kaironetic::KRL {</div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="class_kaironetic_1_1_k_r_l_1_1_group.html">   10</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_kaironetic_1_1_k_r_l_1_1_group.html">Group</a> {</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        std::vector&lt;std::unique_ptr&lt;Command&gt;&gt; commands;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        std::string <a class="code" href="class_kaironetic_1_1_k_r_l_1_1_group.html#a7a539fd82dd938ef1ac39b4a2d528b94">compileKRL</a>();</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    };</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;}  <span class="comment">// namespace Kuka</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// SYNTH_GROUP_H</span></div>
-<div class="ttc" id="aclass_kaironetic_1_1_k_r_l_1_1_group_html"><div class="ttname"><a href="class_kaironetic_1_1_k_r_l_1_1_group.html">Kaironetic::KRL::Group</a></div><div class="ttdoc">Collection of commmands.</div><div class="ttdef"><b>Definition:</b> Group.h:10</div></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;Command.h&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">namespace </span>Kaironetic::KRL {</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="class_kaironetic_1_1_k_r_l_1_1_group.html">   11</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_kaironetic_1_1_k_r_l_1_1_group.html">Group</a> {</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        std::vector&lt;std::unique_ptr&lt;Command&gt;&gt; commands;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        std::string <a class="code" href="class_kaironetic_1_1_k_r_l_1_1_group.html#a7a539fd82dd938ef1ac39b4a2d528b94">compileKRL</a>();</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    };</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;}  <span class="comment">// namespace Kuka</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// SYNTH_GROUP_H</span></div>
+<div class="ttc" id="aclass_kaironetic_1_1_k_r_l_1_1_group_html"><div class="ttname"><a href="class_kaironetic_1_1_k_r_l_1_1_group.html">Kaironetic::KRL::Group</a></div><div class="ttdoc">Collection of commmands.</div><div class="ttdef"><b>Definition:</b> Group.h:11</div></div>
 <div class="ttc" id="aclass_kaironetic_1_1_k_r_l_1_1_group_html_a7a539fd82dd938ef1ac39b4a2d528b94"><div class="ttname"><a href="class_kaironetic_1_1_k_r_l_1_1_group.html#a7a539fd82dd938ef1ac39b4a2d528b94">Kaironetic::KRL::Group::compileKRL</a></div><div class="ttdeci">std::string compileKRL()</div><div class="ttdef"><b>Definition:</b> Group.cpp:2</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
