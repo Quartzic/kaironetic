@@ -28,11 +28,9 @@ std::string Draw2D::Canvas::compileKRL() {
     while (!commands.empty()) {
         float cheapestNextDistance = 0;
         int cheapestNextCommand = 0;
-        std::cout << std::endl << "finding cheapest next shape to draw" << std::endl;
         for (int i = 0; i < commands.size(); i++) {
 
             float possibleDistance = lastVisitedPoint.distanceTo(commands[i]->getStartPoint());
-            std::cout << "distance to shape " << i << " is " << possibleDistance << std::endl;
             if (possibleDistance < cheapestNextDistance) {
                 cheapestNextDistance = possibleDistance;
                 cheapestNextCommand = i;
