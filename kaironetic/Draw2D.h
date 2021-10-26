@@ -10,21 +10,27 @@
 #include <optional>
 #include <string>
 #include <vector>
+#include <memory>
 
 #include "Command.h"
 
 namespace Kaironetic {
 
     class Draw2DCommand;
+
     class Draw2DCanvas;
+
     class Draw2DPoint;
+
     class Draw2DPath;
 
     class Draw2DCommand {
     public:
         virtual const Draw2DPoint getStartPoint() = 0;
+
         virtual const Draw2DPoint getEndPoint() = 0;
-        virtual const std::string compileKRL(Draw2DCanvas * canvas) = 0;
+
+        virtual const std::string compileKRL(Draw2DCanvas *canvas) = 0;
     };
 
     /// @brief Represents a two-dimensional canvas in the workspace, like a piece of paper.
@@ -39,13 +45,14 @@ namespace Kaironetic {
         /// @param width The width of the canvas (in millimeters).
         /// @param width The height of the canvas (in millimeters).
         Draw2DCanvas(const Frame &origin, float width, float height);
+
         std::vector<std::unique_ptr<Draw2DCommand>> commands;
 
 
         const std::string compileKRL();
 
         /// @returns Returns a Draw2DPath representing the boundaries of the canvas.
-        Kaironetic::Draw2DPath* drawBoundaries();
+        Kaironetic::Draw2DPath *drawBoundaries();
 
         /// @brief Converts a given Draw2DPoint to a Frame that represents that position in the workspace.
         Kaironetic::Frame pointToFrame(Draw2DPoint input);
@@ -63,6 +70,7 @@ namespace Kaironetic {
         float y;
 
         Draw2DPoint(float x, float y);
+
         float distanceTo(Draw2DPoint input);
     };
 
@@ -73,17 +81,23 @@ namespace Kaironetic {
         Draw2DPath(const std::vector<Draw2DPoint> &points);
 
         const Draw2DPoint getStartPoint() override;
+
         const Draw2DPoint getEndPoint() override;
-        const std::string compileKRL(Draw2DCanvas * canvas) override;
+
+        const std::string compileKRL(Draw2DCanvas *canvas) override;
     };
+
     class Draw2DSpline : public Draw2DCommand {
     public:
         std::vector<Draw2DPoint> points;
 
         Draw2DSpline(const std::vector<Draw2DPoint> &points);
+
         const Draw2DPoint getStartPoint() override;
+
         const Draw2DPoint getEndPoint() override;
-        const std::string compileKRL(Draw2DCanvas * canvas) override;
+
+        const std::string compileKRL(Draw2DCanvas *canvas) override;
     };
 };  // namespace Kuka
 

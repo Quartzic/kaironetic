@@ -1,7 +1,6 @@
 #include <filesystem>  // C++17
 #include <fstream>
 #include <iostream>
-#include <opencv2/opencv.hpp>
 #include <Draw2D/Canvas.h>
 #include <Piano/Track.h>
 

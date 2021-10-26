@@ -17,9 +17,9 @@ namespace Kaironetic::Draw2D {
     /// \brief Represents a two-dimensional path
     class Path : public Draw2D::Command {
     public:
-        std::__1::vector<Draw2D::Point> points;
+        std::vector<Draw2D::Point> points;
 
-        Path(const std::__1::vector<Draw2D::Point> &points);
+        Path(const std::vector<Draw2D::Point> &points);
 
         /// Get the first point
         Draw2D::Point getStartPoint() override;

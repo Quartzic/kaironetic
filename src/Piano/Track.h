@@ -21,7 +21,7 @@ namespace Piano {
 
         Track(const KRL::Frame &origin, float width, int keys, Piano::Note firstNote);
 
-        std::__1::vector<Piano::Note> notes;
+        std::vector<Piano::Note> notes;
 
         /// @returns Returns a string representing this Track and each Piano::Note that it contains.
         std::string compileKRL() override;

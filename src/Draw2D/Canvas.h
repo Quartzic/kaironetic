@@ -10,6 +10,7 @@
 #include <optional>
 #include <string>
 #include <vector>
+#include <memory>
 
 namespace Kaironetic::Draw2D {
     class Command;
@@ -32,7 +33,7 @@ namespace Kaironetic::Draw2D {
 
         Canvas(const KRL::Frame &origin, float width, float height);
 
-        std::__1::vector<std::__1::unique_ptr<Draw2D::Command>> commands;
+        std::vector<std::unique_ptr<Draw2D::Command>> commands;
 
         /// @returns Returns a string representing this Canvas and each Draw2D::Command that it contains.
         std::string compileKRL() override;
