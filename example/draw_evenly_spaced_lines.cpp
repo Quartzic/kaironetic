@@ -6,7 +6,7 @@
 #include "KRL/Command.h"
 #include "KRL/Group.h"
 
-#define LINE_COUNT 10
+#define LINE_COUNT 9
 
 using namespace Kaironetic;
 namespace fs = std::filesystem;
@@ -20,7 +20,6 @@ int main(int argc, char **argv) {
 
     // set up the canvas
     Draw2D::Canvas *canvas = new Draw2D::Canvas(KRL::Frame(215, -130, 405, 128, 31, 178), 150, 250);;
-    canvas->commands.emplace_back(canvas->drawBoundaries());
 
     // draw evenly spaced paths (lines) on the canvas
     for (int i = 1; i < LINE_COUNT; i++) {

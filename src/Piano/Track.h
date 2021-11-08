@@ -2,7 +2,7 @@
 #ifndef KAIRONETIC_TRACK_H
 #define KAIRONETIC_TRACK_H
 
-#import "KRL/Command.h"
+#include "KRL/Command.h"
 #include "Note.h"
 
 using namespace Kaironetic;
