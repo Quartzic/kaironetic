@@ -18,7 +18,7 @@ enum NOTE_INDEX {
     B = 11
 };
 
-namespace Piano {
+namespace Kaironetic::Piano {
 
     class Note {
     public:

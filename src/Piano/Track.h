@@ -7,7 +7,7 @@
 
 using namespace Kaironetic;
 
-namespace Piano {
+namespace Kaironetic::Piano {
     class Track : public KRL::Command {
     public:
         /// A Frame that represents the center of the leftmost key.
