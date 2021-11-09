@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['y_78',['y',['../class_kaironetic_1_1_k_r_l_1_1_frame.html#ab3450857197d760c37798e1c88f90985',1,'Kaironetic::KRL::Frame']]]
+  ['width_83',['width',['../class_kaironetic_1_1_draw2_d_1_1_canvas.html#a03d3ba0be655b7bd14cd25c5deb9d88d',1,'Kaironetic::Draw2D::Canvas::width()'],['../class_kaironetic_1_1_piano_1_1_track.html#aaa1938e99a6e39cd97d1a3e9fea2be07',1,'Kaironetic::Piano::Track::width()']]]
 ];

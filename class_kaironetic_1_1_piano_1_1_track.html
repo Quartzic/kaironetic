@@ -74,13 +74,18 @@ $(function() {
 <div class="title">Kaironetic::Piano::Track Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Represents a Piano and a set of Notes to be played.  
+ <a href="class_kaironetic_1_1_piano_1_1_track.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_track_8h_source.html">Track.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Kaironetic::Piano::Track:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_kaironetic_1_1_piano_1_1_track.png" usemap="#Kaironetic::Piano::Track_map" alt=""/>
   <map id="Kaironetic::Piano::Track_map" name="Kaironetic::Piano::Track_map">
-<area href="class_kaironetic_1_1_k_r_l_1_1_command.html" title="Any structure that can be compiled into KRL." alt="Kaironetic::KRL::Command" shape="rect" coords="0,0,159,24"/>
+<area href="class_kaironetic_1_1_k_r_l_1_1_command.html" title="A structure that can be compiled into KRL." alt="Kaironetic::KRL::Command" shape="rect" coords="0,0,159,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -93,7 +98,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ac974e85855ba3ca7b825f0afead98ce5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac573d10c0d4600bdbc61823438b1fd36"><td class="memItemLeft" align="right" valign="top"><a id="ac573d10c0d4600bdbc61823438b1fd36"></a>
 <a class="el" href="class_kaironetic_1_1_k_r_l_1_1_frame.html">KRL::Frame</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_kaironetic_1_1_piano_1_1_track.html#ac573d10c0d4600bdbc61823438b1fd36">noteToFrame</a> (<a class="el" href="class_kaironetic_1_1_piano_1_1_note.html">Piano::Note</a> input) const</td></tr>
-<tr class="memdesc:ac573d10c0d4600bdbc61823438b1fd36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a given <a class="el" href="class_kaironetic_1_1_piano_1_1_note.html">Note</a> to a Frame that represents that position in the workspace. <br /></td></tr>
+<tr class="memdesc:ac573d10c0d4600bdbc61823438b1fd36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converts a given <a class="el" href="class_kaironetic_1_1_piano_1_1_note.html" title="Represents a specific key on a piano.">Note</a> to a Frame that represents that position in the workspace. <br /></td></tr>
 <tr class="separator:ac573d10c0d4600bdbc61823438b1fd36"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d2a23e501154ef7481bb2354d88e339"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_kaironetic_1_1_k_r_l_1_1_frame.html">KRL::Frame</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_kaironetic_1_1_piano_1_1_track.html#a8d2a23e501154ef7481bb2354d88e339">playheadUp</a> ()</td></tr>
 <tr class="separator:a8d2a23e501154ef7481bb2354d88e339"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -119,10 +124,13 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 <tr class="memdesc:aee3fa924cc20ed71f691d269c3cf102d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The first note on the keyboard. <br /></td></tr>
 <tr class="separator:aee3fa924cc20ed71f691d269c3cf102d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad5c7e1725cf95ed86d603840f53fd092"><td class="memItemLeft" align="right" valign="top"><a id="ad5c7e1725cf95ed86d603840f53fd092"></a>
-std::vector&lt; <a class="el" href="class_kaironetic_1_1_piano_1_1_note.html">Piano::Note</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>notes</b></td></tr>
+std::vector&lt; <a class="el" href="class_kaironetic_1_1_piano_1_1_note.html">Piano::Note</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_kaironetic_1_1_piano_1_1_track.html#ad5c7e1725cf95ed86d603840f53fd092">notes</a></td></tr>
+<tr class="memdesc:ad5c7e1725cf95ed86d603840f53fd092"><td class="mdescLeft">&#160;</td><td class="mdescRight">An ordered collection of Notes. <br /></td></tr>
 <tr class="separator:ad5c7e1725cf95ed86d603840f53fd092"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Represents a Piano and a set of Notes to be played. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="ac974e85855ba3ca7b825f0afead98ce5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac974e85855ba3ca7b825f0afead98ce5">&#9670;&nbsp;</a></span>compileKRL()</h2>
 
@@ -145,7 +153,7 @@ std::vector&lt; <a class="el" href="class_kaironetic_1_1_piano_1_1_note.html">Pi
   </tr>
 </table>
 </div><div class="memdoc">
-<dl class="section return"><dt>Returns</dt><dd>Returns a string representing this <a class="el" href="class_kaironetic_1_1_piano_1_1_track.html">Track</a> and each <a class="el" href="class_kaironetic_1_1_piano_1_1_note.html">Piano::Note</a> that it contains. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns a string representing this <a class="el" href="class_kaironetic_1_1_piano_1_1_track.html" title="Represents a Piano and a set of Notes to be played.">Track</a> and each <a class="el" href="class_kaironetic_1_1_piano_1_1_note.html" title="Represents a specific key on a piano.">Piano::Note</a> that it contains. </dd></dl>
 
 <p>Implements <a class="el" href="class_kaironetic_1_1_k_r_l_1_1_command.html">Kaironetic::KRL::Command</a>.</p>
 

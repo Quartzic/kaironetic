@@ -75,7 +75,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Represents a two-dimensional path.  
+<p>Two-dimensional path.  
  <a href="class_kaironetic_1_1_draw2_d_1_1_path.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_path_8h_source.html">Path.h</a>&gt;</code></p>
@@ -85,22 +85,23 @@ Inheritance diagram for Kaironetic::Draw2D::Path:</div>
  <div class="center">
   <img src="class_kaironetic_1_1_draw2_d_1_1_path.png" usemap="#Kaironetic::Draw2D::Path_map" alt=""/>
   <map id="Kaironetic::Draw2D::Path_map" name="Kaironetic::Draw2D::Path_map">
-<area href="class_kaironetic_1_1_draw2_d_1_1_command.html" title="Any Command that must be compiled with respect to a Canvas." alt="Kaironetic::Draw2D::Command" shape="rect" coords="0,0,182,24"/>
+<area href="class_kaironetic_1_1_draw2_d_1_1_command.html" title="A structure that can be compiled to KRL with respect to a Canvas." alt="Kaironetic::Draw2D::Command" shape="rect" coords="0,0,182,24"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ae10dbd1c3ae32add2c81d4eae4842b6b"><td class="memItemLeft" align="right" valign="top"><a id="ae10dbd1c3ae32add2c81d4eae4842b6b"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Path</b> (const std::vector&lt; <a class="el" href="class_kaironetic_1_1_draw2_d_1_1_point.html">Draw2D::Point</a> &gt; &amp;points)</td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_kaironetic_1_1_draw2_d_1_1_path.html#ae10dbd1c3ae32add2c81d4eae4842b6b">Path</a> (const std::vector&lt; <a class="el" href="class_kaironetic_1_1_draw2_d_1_1_point.html">Draw2D::Point</a> &gt; &amp;<a class="el" href="class_kaironetic_1_1_draw2_d_1_1_path.html#a8a76d2baaf82f1a4afd60be7ea36d1b1">points</a>)</td></tr>
+<tr class="memdesc:ae10dbd1c3ae32add2c81d4eae4842b6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a <a class="el" href="class_kaironetic_1_1_draw2_d_1_1_path.html" title="Two-dimensional path.">Path</a> given a set of Points. <br /></td></tr>
 <tr class="separator:ae10dbd1c3ae32add2c81d4eae4842b6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ada8d765ffb8c33ffc5ade1f235afe39a"><td class="memItemLeft" align="right" valign="top"><a id="ada8d765ffb8c33ffc5ade1f235afe39a"></a>
 <a class="el" href="class_kaironetic_1_1_draw2_d_1_1_point.html">Draw2D::Point</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_kaironetic_1_1_draw2_d_1_1_path.html#ada8d765ffb8c33ffc5ade1f235afe39a">getStartPoint</a> () override</td></tr>
-<tr class="memdesc:ada8d765ffb8c33ffc5ade1f235afe39a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the first point. <br /></td></tr>
+<tr class="memdesc:ada8d765ffb8c33ffc5ade1f235afe39a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the first <a class="el" href="class_kaironetic_1_1_draw2_d_1_1_point.html" title="Two-dimensional point.">Point</a>. <br /></td></tr>
 <tr class="separator:ada8d765ffb8c33ffc5ade1f235afe39a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afd636b4f87bd516d11982b6c3103d5b5"><td class="memItemLeft" align="right" valign="top"><a id="afd636b4f87bd516d11982b6c3103d5b5"></a>
 <a class="el" href="class_kaironetic_1_1_draw2_d_1_1_point.html">Draw2D::Point</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_kaironetic_1_1_draw2_d_1_1_path.html#afd636b4f87bd516d11982b6c3103d5b5">getEndPoint</a> () override</td></tr>
-<tr class="memdesc:afd636b4f87bd516d11982b6c3103d5b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the last point. <br /></td></tr>
+<tr class="memdesc:afd636b4f87bd516d11982b6c3103d5b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the last <a class="el" href="class_kaironetic_1_1_draw2_d_1_1_point.html" title="Two-dimensional point.">Point</a>. <br /></td></tr>
 <tr class="separator:afd636b4f87bd516d11982b6c3103d5b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa369bd953c8aa26dec99e00f604a0303"><td class="memItemLeft" align="right" valign="top"><a id="aa369bd953c8aa26dec99e00f604a0303"></a>
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>compileKRL</b> (<a class="el" href="class_kaironetic_1_1_draw2_d_1_1_canvas.html">Draw2D::Canvas</a> *canvas) override</td></tr>
@@ -109,11 +110,12 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>compileKRL</b>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a8a76d2baaf82f1a4afd60be7ea36d1b1"><td class="memItemLeft" align="right" valign="top"><a id="a8a76d2baaf82f1a4afd60be7ea36d1b1"></a>
-std::vector&lt; <a class="el" href="class_kaironetic_1_1_draw2_d_1_1_point.html">Draw2D::Point</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>points</b></td></tr>
+std::vector&lt; <a class="el" href="class_kaironetic_1_1_draw2_d_1_1_point.html">Draw2D::Point</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_kaironetic_1_1_draw2_d_1_1_path.html#a8a76d2baaf82f1a4afd60be7ea36d1b1">points</a></td></tr>
+<tr class="memdesc:a8a76d2baaf82f1a4afd60be7ea36d1b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">An ordered set of Points that the tool should travel through. <br /></td></tr>
 <tr class="separator:a8a76d2baaf82f1a4afd60be7ea36d1b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Represents a two-dimensional path. </p>
+<div class="textblock"><p>Two-dimensional path. </p>
 </div><hr/>The documentation for this class was generated from the following files:<ul>
 <li>src/Draw2D/<a class="el" href="_path_8h_source.html">Path.h</a></li>
 <li>src/Draw2D/Path.cpp</li>

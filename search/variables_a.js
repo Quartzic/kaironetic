@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['z_79',['z',['../class_kaironetic_1_1_k_r_l_1_1_frame.html#a84268f54a50b278f18349e966502d141',1,'Kaironetic::KRL::Frame']]]
+  ['x_84',['x',['../class_kaironetic_1_1_k_r_l_1_1_frame.html#a162d351e79e1622cd8d786544120adb2',1,'Kaironetic::KRL::Frame']]]
 ];
