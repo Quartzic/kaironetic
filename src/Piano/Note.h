@@ -3,6 +3,7 @@
 #define KAIRONETIC_NOTE_H
 
 
+/// \enum NOTE_INDEX
 enum NOTE_INDEX {
     C = 0,
     C_SHARP = 1,
@@ -20,6 +21,7 @@ enum NOTE_INDEX {
 
 namespace Kaironetic::Piano {
 
+    /// Represents a specific key on a piano.
     class Note {
     public:
         Note(int value);

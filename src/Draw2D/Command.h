@@ -10,7 +10,7 @@ using namespace Kaironetic::Draw2D;
 namespace Kaironetic::Draw2D {
     class Canvas;
 
-    /// \brief Any Command that must be compiled with respect to a Canvas
+    /// \brief A structure that can be compiled to KRL with respect to a Canvas
     class Command {
     public:
         virtual Point getStartPoint() = 0;

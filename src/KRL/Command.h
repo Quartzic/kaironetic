@@ -10,8 +10,8 @@
 #include "Frame.h"
 
 namespace Kaironetic::KRL {
-    
-    /// \brief Any structure that can be compiled into KRL
+
+    /// \brief A structure that can be compiled into KRL
     class Command {
     public:
         virtual std::string compileKRL() = 0;

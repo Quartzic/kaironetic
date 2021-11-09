@@ -14,17 +14,19 @@
 using namespace Kaironetic;
 
 namespace Kaironetic::Draw2D {
-    /// \brief Represents a two-dimensional path
+    /// \brief Two-dimensional path
     class Path : public Draw2D::Command {
     public:
+        /// An ordered set of Points that the tool should travel through
         std::vector<Draw2D::Point> points;
 
+        /// Construct a Path given a set of Points
         Path(const std::vector<Draw2D::Point> &points);
 
-        /// Get the first point
+        /// Get the first Point
         Draw2D::Point getStartPoint() override;
 
-        /// Get the last point
+        /// Get the last Point
         Draw2D::Point getEndPoint() override;
 
         std::string compileKRL(Draw2D::Canvas *canvas) override;

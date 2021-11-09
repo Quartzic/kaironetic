@@ -8,6 +8,10 @@
 using namespace Kaironetic;
 
 namespace Kaironetic::Piano {
+    /// \example piano_example.cpp
+    /// Plays "Yankee Doodle Dandy" on a Casio 44-key keyboard. WIP.
+
+    /// \brief Represents a Piano and a set of Notes to be played
     class Track : public KRL::Command {
     public:
         /// A Frame that represents the center of the leftmost key.
@@ -21,6 +25,7 @@ namespace Kaironetic::Piano {
 
         Track(const KRL::Frame &origin, float width, int keys, Piano::Note firstNote);
 
+        /// An ordered collection of Notes.
         std::vector<Piano::Note> notes;
 
         /// @returns Returns a string representing this Track and each Piano::Note that it contains.
