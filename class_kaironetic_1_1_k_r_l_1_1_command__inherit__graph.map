@@ -1,0 +1,13 @@
+<map id="Kaironetic::KRL::Command" name="Kaironetic::KRL::Command">
+<area shape="rect" id="node1" title="A structure that can be compiled into KRL." alt="" coords="5,249,183,275"/>
+<area shape="rect" id="node2" href="$class_kaironetic_1_1_draw2_d_1_1_canvas.html" title="Represents a 2D canvas and a set of shapes to be drawn." alt="" coords="278,5,410,47"/>
+<area shape="rect" id="node3" href="$class_kaironetic_1_1_k_r_l_1_1_comment.html" title="Single&#45;line comment." alt="" coords="257,71,431,98"/>
+<area shape="rect" id="node4" href="$class_kaironetic_1_1_k_r_l_1_1_e_n_d_s_p_l_i_n_e.html" title="Marks the end of a spline movement." alt="" coords="247,122,441,149"/>
+<area shape="rect" id="node5" href="$class_kaironetic_1_1_k_r_l_1_1_e_n_d_w_r_a_p_p_e_r.html" title="Teardown commands." alt="" coords="239,173,449,199"/>
+<area shape="rect" id="node6" href="$class_kaironetic_1_1_k_r_l_1_1_l_i_n.html" title="Linear movement." alt="" coords="274,223,414,250"/>
+<area shape="rect" id="node7" href="$class_kaironetic_1_1_k_r_l_1_1_p_t_p.html" title="Point&#45;to&#45;point movement." alt="" coords="272,274,416,301"/>
+<area shape="rect" id="node8" href="$class_kaironetic_1_1_k_r_l_1_1_s_p_l.html" title="Spline movement." alt="" coords="272,325,416,351"/>
+<area shape="rect" id="node9" href="$class_kaironetic_1_1_k_r_l_1_1_s_p_l_i_n_e.html" title="Marks the start of a spline movement." alt="" coords="261,375,427,402"/>
+<area shape="rect" id="node10" href="$class_kaironetic_1_1_k_r_l_1_1_s_t_a_r_t_w_r_a_p_p_e_r.html" title="Setup commands." alt="" coords="231,426,457,453"/>
+<area shape="rect" id="node11" href="$class_kaironetic_1_1_piano_1_1_track.html" title="Represents a Piano and a set of Notes to be played." alt="" coords="281,477,407,519"/>
+</map>

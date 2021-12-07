@@ -1,0 +1,5 @@
+<map id="Kaironetic::KRL::SPL" name="Kaironetic::KRL::SPL">
+<area shape="rect" id="node1" title="Spline movement." alt="" coords="117,95,261,121"/>
+<area shape="rect" id="node2" href="$class_kaironetic_1_1_k_r_l_1_1_command.html" title="A structure that can be compiled into KRL." alt="" coords="5,5,183,32"/>
+<area shape="rect" id="node3" href="$class_kaironetic_1_1_k_r_l_1_1_frame.html" title="Data structure representing an arm position." alt="" coords="207,5,362,32"/>
+</map>

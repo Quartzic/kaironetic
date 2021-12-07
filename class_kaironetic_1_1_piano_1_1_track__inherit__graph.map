@@ -1,0 +1,4 @@
+<map id="Kaironetic::Piano::Track" name="Kaironetic::Piano::Track">
+<area shape="rect" id="node1" title="Represents a Piano and a set of Notes to be played." alt="" coords="31,80,157,121"/>
+<area shape="rect" id="node2" href="$class_kaironetic_1_1_k_r_l_1_1_command.html" title="A structure that can be compiled into KRL." alt="" coords="5,5,183,32"/>
+</map>
